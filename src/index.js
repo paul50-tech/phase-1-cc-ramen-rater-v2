@@ -13,6 +13,25 @@ const handleClick = (ramen) => {
   commentDisplay.textContent = ramen.comment;
 };
 
+const createRamenImage = (ramen) => {
+  const img = document.createElement("img");
+  img.src = ramen.image;
+  img.alt = ramen.name;
+
+  const ramenMenu = document.getElementById("ramen-menu");
+  const ramenItem = document.createElement("div");
+
+  ramenItem.appendChild(img);
+  ramenMenu.appendChild(ramenItem);
+
+  img.addEventListener("click", () => handleClick(ramen));
+};
+
+const removeRamen = (ramenItem) => {
+  ramenItem.remove();
+};
+
+
 const addSubmitListener = () => {
   const form = document.getElementById("new-ramen");
 
